@@ -64,14 +64,22 @@
           <div class="form-control">
             <div class="form-control__header">
               <label for="name">Name</label>
+              <p
+                class="form-control__error-message"
+                id="name-error"
+                aria-live="polite"
+                aria-atomic="true"
+              ></p>
             </div>
             <input
-              autofocus
-              type="text"
               id="name"
               name="name"
+              type="text"
               placeholder="e.g. Stephen King"
               pattern="^(\w{1,50}(\s|-)\w{1,50})+$"
+              aria-invalid="false"
+              aria-describedby="name-error"
+              autofocus
               required
             />
           </div>
@@ -79,12 +87,20 @@
           <div class="form-control">
             <div class="form-control__header">
               <label for="email">Email Address</label>
+              <p
+                class="form-control__error-message"
+                id="email-error"
+                aria-live="polite"
+                aria-atomic="true"
+              ></p>
             </div>
             <input
-              type="email"
               id="email"
               name="email"
+              type="email"
               placeholder="e.g. stephenking@lorem.com"
+              aria-invalid="false"
+              aria-describedby="email-error"
               required
             />
           </div>
@@ -92,13 +108,21 @@
           <div class="form-control">
             <div class="form-control__header">
               <label for="phone">Phone Number</label>
+              <p
+                class="form-control__error-message"
+                id="phone-error"
+                aria-live="polite"
+                aria-atomic="true"
+              ></p>
             </div>
             <input
-              type="tel"
               id="phone"
               name="phone"
+              type="tel"
               placeholder="e.g. +1 234 567 890"
               pattern="\+?(\d| |-){4,20}$"
+              aria-invalid="false"
+              aria-describedby="phone-error"
               required
             />
           </div>

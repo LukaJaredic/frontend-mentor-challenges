@@ -1,45 +1,41 @@
-export function validateForm(form) {
-  const inputs = form.querySelectorAll("input");
+export function validateForm(formElement) {
+  const inputElements = formElement.querySelectorAll("input");
   let isValid = true;
 
-  inputs.forEach((input) => {
-    if (!input.validity.valid) {
+  inputElements.forEach((inputElement) => {
+    if (!inputElement.validity.valid) {
       isValid = false;
-      setInputError(input);
+      setError(inputElement);
     } else {
-      clearInputError(input);
+      clearError(inputElement);
     }
   });
 
   return isValid;
 }
 
-function setInputError(input) {
-  const formControl = input.closest(".form-control");
-  const errorMessage = formControl.querySelector(".error-message");
+function setError(inputElement) {
+  const errorMessageElement = document.getElementById(
+    `${inputElement.name}-error`,
+  );
+  const message = getErrorMessage(inputElement);
 
-  input.setAttribute("aria-invalid", "true");
+  inputElement.setAttribute("aria-invalid", "true");
 
-  if (errorMessage) {
-    errorMessage.textContent = getValidationMessage(input);
-  } else {
-    const errorElement = document.createElement("span");
-    errorElement.classList.add("error-message");
-    errorElement.textContent = getValidationMessage(input);
-    formControl
-      .querySelector(".form-control__header")
-      .appendChild(errorElement);
-  }
+  if (errorMessageElement.textContent !== message)
+    errorMessageElement.textContent = message;
 }
 
-function clearInputError(input) {
-  input.removeAttribute("aria-invalid");
+function clearError(inputElement) {
+  const errorMessageElement = document.getElementById(
+    `${inputElement.name}-error`,
+  );
 
-  const formControl = input.closest(".form-control");
-  formControl.querySelector(".error-message")?.remove();
+  inputElement.removeAttribute("aria-invalid");
+  errorMessageElement.textContent = "";
 }
 
-function getValidationMessage(input) {
+function getErrorMessage(input) {
   if (input.validity.valueMissing) {
     return "This field is required.";
   } else if (input.validity.typeMismatch || input.validity.patternMismatch) {
