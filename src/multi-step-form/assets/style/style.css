@@ -13,7 +13,9 @@
   --clr-blue-50: hsl(231, 100%, 99%);
   --clr-white: hsl(0, 100%, 100%);
 
-  --transition-duration: 75ms;
+  /* Transitions */
+  --transition-duration: 125ms;
+  --transition-easing: ease-in-out;
 }
 
 html,
@@ -38,10 +40,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 1rem;
-
-    li > span {
-      display: none;
-    }
 
     li {
       &:nth-child(1)::before {
@@ -72,9 +70,9 @@ body {
         border: 1px solid var(--clr-white);
         border-radius: 50%;
         transition:
-          background-color var(--transition-duration) ease,
-          border-color var(--transition-duration) ease,
-          color var(--transition-duration) ease;
+          background-color var(--transition-duration) var(--transition-easing),
+          border-color var(--transition-duration) var(--transition-easing),
+          color var(--transition-duration) var(--transition-easing);
       }
 
       &[aria-current="step"]::before {
@@ -84,6 +82,10 @@ body {
       }
     }
   }
+}
+
+.step-indicator__content {
+  display: none;
 }
 
 .form-container {
@@ -140,6 +142,9 @@ body {
     padding: 0.4rem 0.8rem;
     border: 1px solid var(--clr-purple-200);
     border-radius: 0.25rem;
+    outline: 1px solid transparent;
+    transition: outline-color var(--transition-duration)
+      var(--transition-easing);
 
     &::placeholder {
       color: var(--clr-grey-500);
@@ -175,7 +180,8 @@ body {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.25rem;
-  transition: background-color var(--transition-duration) ease;
+  transition: background-color var(--transition-duration)
+    var(--transition-easing);
 
   &:focus-visible,
   &:hover {
@@ -198,7 +204,7 @@ body {
   font-weight: 500;
   padding: 0.5rem 1rem;
   color: var(--clr-grey-500);
-  transition: color var(--transition-duration) ease;
+  transition: color var(--transition-duration) var(--transition-easing);
 
   &:focus-visible,
   &:hover {
@@ -207,5 +213,79 @@ body {
 
   &:active {
     color: var(--clr-purple-600);
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    display: grid;
+    place-items: center;
+  }
+
+  .multi-step-form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 900px;
+    max-height: 600px;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--clr-white);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+
+  .step-indicator {
+    background: url("../images/bg-sidebar-desktop.svg") center / cover;
+    min-width: 250px;
+    min-height: 568px;
+    margin: 0;
+    border-radius: 0.5rem;
+
+    ol {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 3rem 0 0 2rem;
+      gap: 1rem;
+
+      & > li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .step-indicator__content {
+    display: grid;
+    color: var(--clr-blue-50);
+    text-transform: uppercase;
+  }
+
+  .step-indicator__count {
+    font-size: 0.7rem;
+    color: var(--clr-grey-500);
+  }
+
+  .step-indicator__title {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 2rem 2.5rem 1rem;
+    box-shadow: none;
+
+    footer {
+      position: static;
+      padding: 0;
+      box-shadow: none;
+      background-color: transparent;
+      margin-top: auto;
+    }
   }
 }
