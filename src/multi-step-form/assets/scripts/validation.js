@@ -1,6 +1,6 @@
 export function validateForm(formElement) {
-  const inputElements = formElement.querySelectorAll("input");
   let isValid = true;
+  const inputElements = formElement.querySelectorAll("input");
 
   inputElements.forEach((inputElement) => {
     if (!inputElement.validity.valid) {

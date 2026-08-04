@@ -1,17 +1,14 @@
-import { validateForm } from "./validation";
-
 /*
-    ---------MAIN-----------
+    -------------MAIN-----------------
 */
-
 const mainElement = document.querySelector("main");
 const submitButtonElement = document.querySelector('button[type="submit"]');
 const backButtonElement = document.querySelector('button[type="button"]');
 
 let formState = {
-  isCurrentFormSubmitted: false,
-  currentStepIndex: 1,
   data: {},
+  currentStepIndex: 1,
+  isCurrentFormSubmitted: false,
 };
 
 registerFormEventHandlers();
@@ -21,8 +18,12 @@ backButtonElement.addEventListener("click", () => {
 });
 
 /*
-    --------END-MAIN---------
+    ------------END-MAIN-----------------
+    BELOW ARE FUNCTIONS CALLED FROM MAIN
+    -------------------------------------
 */
+
+import { validateForm } from "./validation";
 
 function registerFormEventHandlers() {
   const steps = [
@@ -32,6 +33,7 @@ function registerFormEventHandlers() {
 
   steps.forEach((step) => {
     const formElement = document.getElementById(`step-${step}-form`);
+
     // Remove possible stale handlers
     formElement.removeEventListener("submit", handleSubmit);
     formElement.removeEventListener("input", handleFormInput);
@@ -50,9 +52,9 @@ function handleFormInput(event) {
   if (!formState.isCurrentFormSubmitted) return;
 
   if (validateForm(event.currentTarget)) {
-    submitButtonElement.removeAttribute("disabled");
+    submitButtonElement.disabled = false;
   } else {
-    submitButtonElement.setAttribute("disabled", "true");
+    submitButtonElement.disabled = true;
   }
 }
 
@@ -62,7 +64,7 @@ function handleSubmit(event) {
   formState.isCurrentFormSubmitted = true;
 
   if (!validateForm(formElement)) {
-    submitButtonElement.setAttribute("disabled", "true");
+    submitButtonElement.disabled = true;
     formElement.querySelector("input:invalid").focus();
     return;
   }
