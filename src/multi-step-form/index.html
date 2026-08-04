@@ -25,7 +25,7 @@
     <main class="multi-step-form">
       <!-- SIDEBAR -->
       <aside class="step-indicator">
-        <ol>
+        <ol aria-label="Form progress">
           <li aria-current="step" aria-label="Step 1 - Your info">
             <span class="step-indicator__content">
               <span class="step-indicator__count">Step 1</span>
@@ -79,7 +79,6 @@
               pattern="^(\w{1,50}(\s|-)\w{1,50})+$"
               aria-invalid="false"
               aria-describedby="name-error"
-              autofocus
               required
             />
           </div>
