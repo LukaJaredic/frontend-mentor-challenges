@@ -1,0 +1,211 @@
+:root {
+  /* Primary */
+  --clr-blue-950: hsl(213, 96%, 18%);
+  --clr-purple-600: hsl(243, 100%, 62%);
+  --clr-blue-300: hsl(228, 45%, 44%);
+  --clr-blue-200: hsl(206, 94%, 87%);
+  --clr-red-500: hsl(354, 84%, 57%);
+
+  /* Neutral */
+  --clr-grey-500: hsl(231, 11%, 63%);
+  --clr-purple-200: hsl(229, 24%, 87%);
+  --clr-blue-100: hsl(218, 100%, 97%);
+  --clr-blue-50: hsl(231, 100%, 99%);
+  --clr-white: hsl(0, 100%, 100%);
+
+  --transition-duration: 75ms;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Ubuntu", sans-serif;
+  background-color: var(--clr-blue-50);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.step-indicator {
+  background: url("../images/bg-sidebar-mobile.svg") center / cover;
+  height: 172px;
+  margin-bottom: -4.5rem;
+
+  ol {
+    list-style: none;
+    padding: 2rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    li > span {
+      display: none;
+    }
+
+    li {
+      &:nth-child(1)::before {
+        content: "1";
+      }
+
+      &:nth-child(2)::before {
+        content: "2";
+      }
+
+      &:nth-child(3)::before {
+        content: "3";
+      }
+
+      &:nth-child(4)::before {
+        content: "4";
+      }
+
+      &::before {
+        width: 2rem;
+        height: 2rem;
+        display: grid;
+        place-items: center;
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--clr-white);
+        background-color: transparent;
+        border: 1px solid var(--clr-white);
+        border-radius: 50%;
+        transition:
+          background-color var(--transition-duration) ease,
+          border-color var(--transition-duration) ease,
+          color var(--transition-duration) ease;
+      }
+
+      &[aria-current="step"]::before {
+        background-color: var(--clr-blue-200);
+        border-color: var(--clr-blue-300);
+        color: var(--clr-blue-950);
+      }
+    }
+  }
+}
+
+.form-container {
+  margin: 0 1rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--clr-white);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+  header {
+    h1 {
+      font-size: 1.5rem;
+      color: var(--clr-blue-950);
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      color: var(--clr-grey-500);
+    }
+  }
+
+  form {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--clr-white);
+    box-shadow: 0 -0.1rem 1rem rgba(0, 0, 0, 0.05);
+
+    & button[type="submit"] {
+      margin-left: auto;
+    }
+  }
+}
+
+.form-control {
+  display: grid;
+
+  label {
+    font-size: 0.75rem;
+    color: var(--clr-blue-950);
+  }
+
+  input {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--clr-purple-200);
+    border-radius: 0.25rem;
+
+    &::placeholder {
+      color: var(--clr-grey-500);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    &:focus-visible,
+    &:hover {
+      outline: 1px solid var(--clr-purple-600);
+    }
+  }
+}
+
+.form-control__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.error-message {
+  font-size: 0.75rem;
+  color: var(--clr-red-500);
+  font-weight: 700;
+}
+
+.btn-primary {
+  background-color: var(--clr-blue-950);
+  color: var(--clr-blue-50);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  transition: background-color var(--transition-duration) ease;
+
+  &:focus-visible,
+  &:hover {
+    background-color: var(--clr-blue-300);
+  }
+
+  &:active {
+    background-color: var(--clr-purple-600);
+  }
+
+  &:disabled {
+    background-color: var(--clr-purple-200);
+  }
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  color: var(--clr-grey-500);
+  transition: color var(--transition-duration) ease;
+
+  &:focus-visible,
+  &:hover {
+    color: var(--clr-blue-300);
+  }
+
+  &:active {
+    color: var(--clr-purple-600);
+  }
+}
