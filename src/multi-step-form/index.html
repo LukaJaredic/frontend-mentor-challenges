@@ -127,6 +127,127 @@
           </div>
         </form>
         <!-- STEP 1 CONTENT END -->
+        <!-- STEP 2 CONTENT -->
+        <header id="step-2-form-header" hidden>
+          <h1 tabindex="-1">Select your plan</h1>
+          <p>You have the option of monthly or yearly billing.</p>
+        </header>
+        <form id="step-2-form" novalidate hidden>
+          <fieldset class="billing-type">
+            <legend class="sr-only">Select your billing type</legend>
+            <input
+              type="radio"
+              id="billing-type-monthly"
+              name="billing-type"
+              value="monthly"
+              class="sr-only"
+            />
+            <label for="billing-type-monthly"> Monthly </label>
+
+            <div class="billing-type__indicator"></div>
+
+            <input
+              type="radio"
+              name="billing-type"
+              id="billing-type-yearly"
+              value="yearly"
+              class="sr-only"
+              checked
+            />
+            <label for="billing-type-yearly"> Yearly </label>
+          </fieldset>
+          <fieldset class="plan">
+            <legend class="sr-only">Select your plan</legend>
+            <input
+              type="radio"
+              id="plan-arcade"
+              name="plan"
+              value="arcade"
+              class="sr-only"
+              checked
+            />
+            <label for="plan-arcade" aria-live="polite" aria-atomic="true">
+              <div class="plan__content">
+                <span class="plan__content__name">Arcade</span>
+                <span
+                  class="plan__content__price"
+                  data-type-yearly-content="$90/yr"
+                  data-type-monthly-content="$9/mo"
+                >
+                  $90/yr
+                </span>
+                <span
+                  class="plan__content__savings"
+                  data-type-yearly-content="2 months free"
+                  data-type-monthly-content=""
+                >
+                  2 months free
+                </span>
+              </div>
+            </label>
+
+            <input
+              type="radio"
+              id="plan-advanced"
+              name="plan"
+              value="advanced"
+              class="sr-only"
+            />
+            <label for="plan-advanced" aria-live="polite" aria-atomic="true">
+              <div class="plan__content">
+                <span class="plan__content__name">Advanced</span>
+                <span
+                  class="plan__content__price"
+                  data-type-yearly-content="$120/yr"
+                  data-type-monthly-content="$12/mo"
+                >
+                  $120/yr
+                </span>
+                <span
+                  class="plan__content__savings"
+                  data-type-yearly-content="2 months free"
+                  data-type-monthly-content=""
+                >
+                  2 months free
+                </span>
+              </div>
+            </label>
+
+            <input
+              type="radio"
+              id="plan-pro"
+              name="plan"
+              value="pro"
+              class="sr-only"
+            />
+            <label for="plan-pro" aria-live="polite" aria-atomic="true">
+              <div class="plan__content">
+                <span class="plan__content__name">Pro</span>
+                <span
+                  class="plan__content__price"
+                  data-type-yearly-content="$150/yr"
+                  data-type-monthly-content="$15/mo"
+                >
+                  $150/yr
+                </span>
+                <span
+                  class="plan__content__savings"
+                  data-type-yearly-content="2 months free"
+                  data-type-monthly-content=""
+                >
+                  2 months free
+                </span>
+              </div>
+            </label>
+          </fieldset>
+        </form>
+        <!-- STEP 2 CONTENT END -->
+        <!-- STEP 3 CONTENT -->
+        <!-- STEP 3 CONTENT END -->
+        <!-- STEP 4 CONTENT -->
+        <!-- STEP 4 CONTENT END -->
+        <!-- STEP 5 CONTENT -->
+        <!-- STEP 5 CONTENT END -->
 
         <footer>
           <button class="btn-ghost" type="button" hidden>Go Back</button>
@@ -135,13 +256,6 @@
           </button>
         </footer>
       </article>
-
-      <!-- Step 1 start 
-
-      Name e.g. Stephen King Email Address e.g. stephenking@lorem.com Phone
-      Number e.g. +1 234 567 890 Next Step
-
-       Step 1 end -->
 
       <!-- Step 2 start 
 
