@@ -32,7 +32,9 @@ function clearError(inputElement) {
   );
 
   inputElement.removeAttribute("aria-invalid");
-  errorMessageElement.textContent = "";
+
+  // Some inputs do not have a possibility of erroring (eg. optional checkboxes)
+  if (errorMessageElement?.textContent) errorMessageElement.textContent = "";
 }
 
 function getErrorMessage(input) {

@@ -27,8 +27,8 @@ import { validateForm } from "./validation";
 
 function registerFormEventHandlers() {
   const steps = [
-    1, 2,
-    // 3, 4
+    1, 2, 3,
+    // 4
   ];
 
   steps.forEach((step) => {

@@ -242,6 +242,82 @@
           </fieldset>
         </form>
         <!-- STEP 2 CONTENT END -->
+        <header id="step-3-form-header" hidden>
+          <h1 tabindex="-1">Pick add-ons</h1>
+          <p>Add-ons help enhance your gaming experience.</p>
+        </header>
+        <form id="step-3-form" novalidate hidden>
+          <fieldset class="add-ons">
+            <legend class="sr-only">Select your add-ons</legend>
+            <input
+              type="checkbox"
+              id="add-on-online-service"
+              name="add-on-online-service"
+              class="sr-only"
+            />
+            <label for="add-on-online-service">
+              <div class="add-ons__text-content">
+                <span class="add-ons__text-content__name">Online service</span>
+                <span class="add-ons__text-content__description"
+                  >Access to multiplayer games</span
+                >
+              </div>
+              <span
+                class="add-ons__price"
+                data-type-monthly-content="+$1/mo"
+                data-type-yearly-content="+$10/yr"
+              >
+                +$10/yr
+              </span>
+            </label>
+
+            <input
+              type="checkbox"
+              id="add-on-larger-storage"
+              name="add-on-larger-storage"
+              class="sr-only"
+            />
+            <label for="add-on-larger-storage">
+              <div class="add-ons__text-content">
+                <span class="add-ons__text-content__name">Larger storage</span>
+                <span class="add-ons__text-content__description">
+                  Extra 1TB of cloud save
+                </span>
+              </div>
+              <span
+                class="add-ons__price"
+                data-type-monthly-content="+$2/mo"
+                data-type-yearly-content="+$20/yr"
+              >
+                +$20/yr
+              </span>
+            </label>
+
+            <input
+              type="checkbox"
+              id="add-on-customizable-profile"
+              name="add-on-customizable-profile"
+              class="sr-only"
+            />
+            <label for="add-on-customizable-profile">
+              <div class="add-ons__text-content">
+                <span class="add-ons__text-content__name"
+                  >Customizable Profile</span
+                >
+                <span class="add-ons__text-content__description">
+                  Custom theme on your profile
+                </span>
+              </div>
+              <span
+                class="add-ons__price"
+                data-type-monthly-content="+$2/mo"
+                data-type-yearly-content="+$20/yr"
+              >
+                +$20/yr
+              </span>
+            </label>
+          </fieldset>
+        </form>
         <!-- STEP 3 CONTENT -->
         <!-- STEP 3 CONTENT END -->
         <!-- STEP 4 CONTENT -->

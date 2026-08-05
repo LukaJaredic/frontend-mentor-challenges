@@ -100,7 +100,8 @@ fieldset {
 
 .form-container {
   margin: 0 1rem;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
+  max-width: 500px;
   background-color: var(--clr-white);
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
@@ -153,8 +154,13 @@ fieldset {
     border: 1px solid var(--clr-purple-200);
     border-radius: 0.25rem;
     outline: 1px solid transparent;
-    transition: outline-color var(--transition-duration)
-      var(--transition-easing);
+    transition:
+      outline-color var(--transition-duration) var(--transition-easing),
+      border-color var(--transition-duration) var(--transition-easing);
+
+    &[aria-invalid="true"] {
+      border-color: var(--clr-red-500);
+    }
 
     &::placeholder {
       color: var(--clr-grey-500);
@@ -305,7 +311,7 @@ input:checked + label + .billing-type__indicator::before {
     grid-template-columns: auto 1fr;
     gap: 1rem;
     padding: 1rem;
-    border: 1px solid var(--clr-blue-100);
+    border: 1px solid var(--clr-purple-200);
     border-radius: 0.5rem;
     transition:
       border-color var(--transition-duration) var(--transition-easing),
@@ -361,6 +367,76 @@ input:checked + label + .billing-type__indicator::before {
 .plan__content__savings {
   font-size: 0.75rem;
   color: var(--clr-blue-950);
+}
+
+.add-ons {
+  display: grid;
+  gap: 0.75rem;
+
+  label {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--clr-purple-200);
+    border-radius: 0.5rem;
+    transition:
+      border-color var(--transition-duration) var(--transition-easing),
+      background-color var(--transition-duration) var(--transition-easing);
+
+    &::before {
+      content: "";
+      width: 1.3rem;
+      height: 1.3rem;
+      border: 1px solid var(--clr-purple-200);
+      border-radius: 0.25rem;
+    }
+  }
+
+  input:checked + label {
+    border-color: var(--clr-purple-600);
+    background-color: var(--clr-blue-50);
+
+    &::before {
+      background:
+        url("../images/icon-checkmark.svg") center / 60% no-repeat,
+        linear-gradient(var(--clr-purple-600), var(--clr-purple-600) 0 0);
+    }
+  }
+
+  input:focus + label,
+  label:hover {
+    border-color: var(--clr-purple-600);
+    background-color: transparent !important;
+  }
+}
+
+.add-ons__text-content {
+  display: grid;
+}
+
+.add-ons__text-content__name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-blue-950);
+}
+
+.add-ons__text-content__description {
+  font-size: 0.75rem;
+  color: var(--clr-grey-500);
+}
+
+.add-ons__price {
+  font-size: 0.75rem;
+  color: var(--clr-purple-600);
+}
+
+/* max width of container + necessary fixed margin for xs screens */
+@media (min-width: calc(500px + 2 * 1rem)) {
+  .form-container {
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 768px) {
