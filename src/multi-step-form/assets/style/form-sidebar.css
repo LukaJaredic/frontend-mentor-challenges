@@ -1,0 +1,97 @@
+.step-indicator {
+  margin-bottom: -4.5rem;
+  height: 172px;
+  background: url("../images/bg-sidebar-mobile.svg") center / cover;
+
+  ol {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 2rem;
+
+    li {
+      &:nth-child(1)::before {
+        content: "1";
+      }
+
+      &:nth-child(2)::before {
+        content: "2";
+      }
+
+      &:nth-child(3)::before {
+        content: "3";
+      }
+
+      &:nth-child(4)::before {
+        content: "4";
+      }
+
+      &::before {
+        display: grid;
+        place-items: center;
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--clr-white);
+        background-color: transparent;
+        border: 1px solid var(--clr-white);
+        border-radius: 50%;
+        transition:
+          background-color var(--transition-duration) var(--transition-easing),
+          border-color var(--transition-duration) var(--transition-easing),
+          color var(--transition-duration) var(--transition-easing);
+      }
+
+      &[aria-current="step"]::before {
+        color: var(--clr-blue-950);
+        background-color: var(--clr-blue-200);
+        border-color: var(--clr-blue-300);
+      }
+    }
+  }
+}
+
+.step-indicator__content {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .step-indicator {
+    margin: 0;
+    min-width: 250px;
+    min-height: 568px;
+    background: url("../images/bg-sidebar-desktop.svg") center / cover;
+    border-radius: 0.5rem;
+
+    ol {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 3rem 0 0 2rem;
+
+      & > li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .step-indicator__content {
+    display: grid;
+    color: var(--clr-blue-50);
+    text-transform: uppercase;
+  }
+
+  .step-indicator__count {
+    font-size: 0.7rem;
+    color: var(--clr-grey-500);
+  }
+
+  .step-indicator__title {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+}

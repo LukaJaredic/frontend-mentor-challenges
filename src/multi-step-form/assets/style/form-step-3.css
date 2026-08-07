@@ -1,0 +1,62 @@
+.add-ons {
+  display: grid;
+  gap: 0.75rem;
+
+  label {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--clr-purple-200);
+    border-radius: 0.5rem;
+    transition:
+      border-color var(--transition-duration) var(--transition-easing),
+      background-color var(--transition-duration) var(--transition-easing);
+
+    &::before {
+      content: "";
+      width: 1.3rem;
+      height: 1.3rem;
+      border: 1px solid var(--clr-purple-200);
+      border-radius: 0.25rem;
+    }
+  }
+
+  input:checked + label {
+    border-color: var(--clr-purple-600);
+    background-color: var(--clr-blue-50);
+
+    &::before {
+      background:
+        url("../images/icon-checkmark.svg") center / 60% no-repeat,
+        linear-gradient(var(--clr-purple-600), var(--clr-purple-600) 0 0);
+    }
+  }
+
+  input:focus + label,
+  label:hover {
+    border-color: var(--clr-purple-600);
+    background-color: transparent !important;
+  }
+}
+
+.add-ons__text-content {
+  display: grid;
+}
+
+.add-ons__text-content__name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-blue-950);
+}
+
+.add-ons__text-content__description {
+  font-size: 0.75rem;
+  color: var(--clr-grey-500);
+}
+
+.add-ons__price {
+  font-size: 0.75rem;
+  color: var(--clr-purple-600);
+}

@@ -1,0 +1,120 @@
+:root {
+  /* Primary */
+  --clr-blue-950: hsl(213, 96%, 18%);
+  --clr-purple-600: hsl(243, 100%, 62%);
+  --clr-blue-300: hsl(228, 45%, 44%);
+  --clr-blue-200: hsl(206, 94%, 87%);
+  --clr-red-500: hsl(354, 84%, 57%);
+
+  /* Neutral */
+  --clr-grey-500: hsl(231, 11%, 63%);
+  --clr-purple-200: hsl(229, 24%, 87%);
+  --clr-blue-100: hsl(218, 100%, 97%);
+  --clr-blue-50: hsl(231, 100%, 99%);
+  --clr-white: hsl(0, 100%, 100%);
+
+  /* Transitions */
+  --transition-duration: 125ms;
+  --transition-easing: ease-in-out;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: auto;
+  font-family: "Ubuntu", sans-serif;
+  background-color: var(--clr-blue-50);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.multi-step-form {
+  margin-bottom: 6rem;
+}
+
+.form-container {
+  margin: 0 1rem;
+  padding: 2rem 1.5rem;
+  max-width: 500px;
+  background-color: var(--clr-white);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+  header {
+    h1 {
+      margin-bottom: 0.25rem;
+      font-size: 1.5rem;
+      color: var(--clr-blue-950);
+    }
+
+    p {
+      color: var(--clr-grey-500);
+    }
+  }
+
+  form {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* max width of container + necessary fixed margin for xs screens */
+@media (min-width: calc(500px + 2 * 1rem)) {
+  .form-container {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    display: grid;
+    place-items: center;
+  }
+
+  .multi-step-form {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 900px;
+    max-height: 600px;
+    padding: 1rem;
+    background-color: var(--clr-white);
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2.5rem 1rem;
+    box-shadow: none;
+  }
+}

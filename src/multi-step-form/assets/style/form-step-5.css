@@ -1,0 +1,35 @@
+form-step-5 {
+  display: contents;
+}
+
+.thank-you {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  gap: 1rem;
+  padding-block: 2.5rem;
+  text-align: center;
+
+  h1 {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: var(--clr-blue-950);
+
+    &::before {
+      content: "";
+      width: 3.5rem;
+      height: 3.5rem;
+      background: url("../images/icon-thank-you.svg") center / contain;
+    }
+  }
+
+  p {
+    color: var(--clr-grey-500);
+  }
+
+  &:not([hidden]) + footer {
+    display: none;
+  }
+}
