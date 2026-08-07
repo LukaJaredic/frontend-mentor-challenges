@@ -533,6 +533,38 @@ input:checked + label + .billing-type__indicator::before {
   color: var(--clr-purple-600);
 }
 
+.thank-you {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  gap: 1rem;
+  padding-block: 2.5rem;
+  text-align: center;
+
+  h1 {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    color: var(--clr-blue-950);
+
+    &::before {
+      content: "";
+      width: 3.5rem;
+      height: 3.5rem;
+      background: url("../images/icon-thank-you.svg") center / contain;
+    }
+  }
+
+  p {
+    color: var(--clr-grey-500);
+  }
+
+  &:not([hidden]) + footer {
+    display: none;
+  }
+}
+
 /* max width of container + necessary fixed margin for xs screens */
 @media (min-width: calc(500px + 2 * 1rem)) {
   .form-container {

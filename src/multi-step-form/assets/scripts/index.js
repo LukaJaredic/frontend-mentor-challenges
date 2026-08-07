@@ -143,6 +143,15 @@ function handleBillingTypeToggle(event) {
 }
 
 function handleStepChange(oldStep, newStep) {
+  if (newStep === 5) {
+    // Send data to backend...
+    document.getElementById(`step-${oldStep}-form`).hidden = true;
+    document.getElementById(`step-${oldStep}-form-header`).hidden = true;
+    document.querySelector(".thank-you").hidden = false;
+
+    return;
+  }
+
   formState.currentStepIndex = newStep;
   formState.isCurrentFormSubmitted = false;
 
