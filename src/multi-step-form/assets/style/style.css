@@ -35,6 +35,12 @@ fieldset {
   display: none !important;
 }
 
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 .multi-step-form {
   margin-bottom: 6rem;
 }
@@ -48,8 +54,7 @@ fieldset {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    padding: 2rem 0 0 0;
-    list-style: none;
+    padding-top: 2rem;
 
     li {
       &:nth-child(1)::before {
@@ -210,6 +215,14 @@ fieldset {
 
   &:disabled {
     background-color: var(--clr-purple-200);
+  }
+
+  &[form="step-4-form"] {
+    background-color: var(--clr-purple-600);
+
+    &:active {
+      background-color: var(--clr-blue-950);
+    }
   }
 }
 
@@ -429,6 +442,94 @@ input:checked + label + .billing-type__indicator::before {
 
 .add-ons__price {
   font-size: 0.75rem;
+  color: var(--clr-purple-600);
+}
+
+.summary {
+  display: grid;
+  padding: 1.25rem;
+  background-color: var(--clr-blue-50);
+  border-radius: 0.5rem;
+
+  li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+.summary__plan {
+  line-height: 1;
+  padding-bottom: 0.5rem;
+}
+
+.summary__plan__name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-blue-950);
+}
+
+.summary__plan__change {
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-grey-500);
+  text-decoration: underline 2px;
+  background-color: transparent;
+  border: none;
+
+  &:hover {
+    color: var(--clr-blue-950);
+    text-decoration: none;
+  }
+
+  &:active {
+    color: var(--clr-purple-600);
+  }
+}
+
+.summary__plan__price {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--clr-blue-950);
+}
+
+.summary__add-ons {
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--clr-purple-200);
+
+  ul {
+    display: grid;
+    gap: 0.5rem;
+  }
+}
+
+.summary__add-ons__name {
+  font-size: 0.875rem;
+  color: var(--clr-grey-500);
+}
+
+.summary__add-ons__price {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--clr-blue-950);
+}
+
+.total {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 0 1rem;
+}
+
+.total__title {
+  font-size: 0.875rem;
+  color: var(--clr-grey-500);
+}
+
+.total__price {
+  font-weight: 700;
   color: var(--clr-purple-600);
 }
 

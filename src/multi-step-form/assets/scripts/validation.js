@@ -1,4 +1,4 @@
-export function validateForm(formElement) {
+function validateForm(formElement) {
   let isValid = true;
   const inputElements = formElement.querySelectorAll("input");
 
@@ -46,3 +46,5 @@ function getErrorMessage(input) {
     return "Invalid input.";
   }
 }
+
+export { validateForm };

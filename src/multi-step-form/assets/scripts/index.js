@@ -1,9 +1,19 @@
+import { validateForm } from "./validation";
+import { updateSummary } from "./summary";
+
 /*
     -------------MAIN-----------------
 */
 const mainElement = document.querySelector("main");
-const submitButtonElement = document.querySelector('button[type="submit"]');
-const backButtonElement = document.querySelector('button[type="button"]');
+const submitButtonElement = document.querySelector(
+  'footer button[type="submit"]',
+);
+const backButtonElement = document.querySelector(
+  'footer button[type="button"]',
+);
+const changePlanButtonElement = document.querySelector(
+  ".summary__plan__change",
+);
 
 let formState = {
   data: {},
@@ -12,9 +22,15 @@ let formState = {
 };
 
 registerFormEventHandlers();
+// Initialize summary with default values
+updateSummary({ name: "plan" });
 
 backButtonElement.addEventListener("click", () => {
   handleStepChange(formState.currentStepIndex, formState.currentStepIndex - 1);
+});
+
+changePlanButtonElement.addEventListener("click", () => {
+  handleStepChange(formState.currentStepIndex, 2);
 });
 
 /*
@@ -23,13 +39,8 @@ backButtonElement.addEventListener("click", () => {
     -------------------------------------
 */
 
-import { validateForm } from "./validation";
-
 function registerFormEventHandlers() {
-  const steps = [
-    1, 2, 3,
-    // 4
-  ];
+  const steps = [1, 2, 3, 4];
 
   steps.forEach((step) => {
     const formElement = document.getElementById(`step-${step}-form`);
@@ -63,6 +74,8 @@ function registerFormEventHandlers() {
 }
 
 function handleFormInput(event) {
+  updateSummary(event.target);
+
   // Don't validate non-submitted forms
   if (!formState.isCurrentFormSubmitted) return true;
 
@@ -85,13 +98,19 @@ function handleSubmit(event) {
     return;
   }
 
+  const formData = new FormData(formElement);
+
   formState = {
     ...formState,
     data: {
       ...formState.data,
-      ...Object.fromEntries(new FormData(event.target).entries()),
+      ...Object.fromEntries(formData.entries()),
     },
   };
+
+  const checkbox = formElement.querySelector('input[type="checkbox"]');
+  if (checkbox)
+    formState.data[checkbox.name] = [...formData.getAll(checkbox.name)];
 
   handleStepChange(formState.currentStepIndex, formState.currentStepIndex + 1);
 }
@@ -145,6 +164,9 @@ function handleStepChange(oldStep, newStep) {
 
   if (newStep === 1) backButtonElement.hidden = true;
   else backButtonElement.hidden = false;
+
+  if (newStep === 4) submitButtonElement.textContent = "Confirm";
+  else submitButtonElement.textContent = "Next Step";
 
   registerFormEventHandlers();
 }

@@ -242,6 +242,7 @@
           </fieldset>
         </form>
         <!-- STEP 2 CONTENT END -->
+        <!-- STEP 3 CONTENT -->
         <header id="step-3-form-header" hidden>
           <h1 tabindex="-1">Pick add-ons</h1>
           <p>Add-ons help enhance your gaming experience.</p>
@@ -252,8 +253,9 @@
             <input
               type="checkbox"
               id="add-on-online-service"
-              name="add-on-online-service"
+              name="add-ons"
               class="sr-only"
+              value="online-service"
             />
             <label for="add-on-online-service">
               <div class="add-ons__text-content">
@@ -274,8 +276,9 @@
             <input
               type="checkbox"
               id="add-on-larger-storage"
-              name="add-on-larger-storage"
+              name="add-ons"
               class="sr-only"
+              value="larger-storage"
             />
             <label for="add-on-larger-storage">
               <div class="add-ons__text-content">
@@ -296,8 +299,9 @@
             <input
               type="checkbox"
               id="add-on-customizable-profile"
-              name="add-on-customizable-profile"
+              name="add-ons"
               class="sr-only"
+              value="customizable-profile"
             />
             <label for="add-on-customizable-profile">
               <div class="add-ons__text-content">
@@ -318,9 +322,128 @@
             </label>
           </fieldset>
         </form>
-        <!-- STEP 3 CONTENT -->
         <!-- STEP 3 CONTENT END -->
         <!-- STEP 4 CONTENT -->
+        <header id="step-4-form-header" hidden>
+          <h1 tabindex="-1">Finishing up</h1>
+          <p>Double-check everything looks OK before confirming.</p>
+        </header>
+        <form id="step-4-form" novalidate hidden>
+          <input type="hidden" name="confirmed" value="true" />
+          <ul class="summary">
+            <li class="summary__plan">
+              <span>
+                <span
+                  class="summary__plan__name"
+                  data-plan-name="arcade"
+                  data-type-monthly-content="Arcade (Monthly)"
+                  data-type-yearly-content="Arcade (Yearly)"
+                >
+                  Arcade (Yearly)
+                </span>
+
+                <span
+                  class="summary__plan__name"
+                  data-plan-name="advanced"
+                  data-type-monthly-content="Advanced (Monthly)"
+                  data-type-yearly-content="Advanced (Yearly)"
+                  hidden
+                >
+                  Advanced (Yearly)
+                </span>
+
+                <span
+                  class="summary__plan__name"
+                  data-plan-name="pro"
+                  data-type-monthly-content="Pro (Monthly)"
+                  data-type-yearly-content="Pro (Yearly)"
+                  hidden
+                >
+                  Pro (Yearly)
+                </span>
+                <button type="button" class="summary__plan__change">
+                  Change
+                </button>
+              </span>
+              <span
+                class="summary__plan__price"
+                data-plan-name="arcade"
+                data-type-monthly-content="$9/mo"
+                data-type-yearly-content="$90/yr"
+              >
+                $90/yr
+              </span>
+
+              <span
+                class="summary__plan__price"
+                data-plan-name="advanced"
+                data-type-monthly-content="$12/mo"
+                data-type-yearly-content="$120/yr"
+                hidden
+              >
+                $120/yr
+              </span>
+
+              <span
+                class="summary__plan__price"
+                data-plan-name="pro"
+                data-type-monthly-content="$15/mo"
+                data-type-yearly-content="$150/yr"
+                hidden
+              >
+                $150/yr
+              </span>
+            </li>
+            <li class="summary__add-ons" hidden>
+              <ul>
+                <li data-add-on-name="online-service" hidden>
+                  <span class="summary__add-ons__name"> Online service </span>
+                  <span
+                    class="summary__add-ons__price"
+                    data-type-monthly-content="+$1/mo"
+                    data-type-yearly-content="+$10/yr"
+                  >
+                    +$10/yr
+                  </span>
+                </li>
+
+                <li data-add-on-name="larger-storage" hidden>
+                  <span class="summary__add-ons__name">Larger storage</span>
+                  <span
+                    class="summary__add-ons__price"
+                    data-type-monthly-content="+$2/mo"
+                    data-type-yearly-content="+$20/yr"
+                  >
+                    +$20/yr
+                  </span>
+                </li>
+
+                <li data-add-on-name="customizable-profile" hidden>
+                  <span class="summary__add-ons__name">
+                    Customizable Profile
+                  </span>
+                  <span
+                    class="summary__add-ons__price"
+                    data-type-monthly-content="+$2/mo"
+                    data-type-yearly-content="+$20/yr"
+                  >
+                    +$20/yr
+                  </span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p class="total">
+            <span
+              class="total__title"
+              data-type-monthly-content="Total (per month)"
+              data-type-yearly-content="Total (per year)"
+            >
+              Total (per year)
+            </span>
+            <span class="total__price"></span>
+          </p>
+        </form>
         <!-- STEP 4 CONTENT END -->
         <!-- STEP 5 CONTENT -->
         <!-- STEP 5 CONTENT END -->
